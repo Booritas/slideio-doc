@@ -202,15 +202,25 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 
-html_theme = "furo"
+html_theme = "sphinx_rtd_theme"
 html_title = "SlideIO"
 html_logo = "_static/slideio-small.png"
 html_favicon = "_static/favicon.ico"
 html_static_path = ["_static"]
+html_css_files = ["custom.css"]
 html_theme_options = {
-    "source_repository": "https://github.com/Booritas/slideio-doc",
-    "source_branch": "main",
-    "source_directory": "docs/source/",
+    "style_nav_header_background": "#343131",
+    "navigation_depth": 4,
+    "collapse_navigation": True,
+    # Page titles only in the sidebar, not the headings inside each page.
+    "titles_only": True,
+}
+html_context = {
+    "display_github": True,
+    "github_user": "Booritas",
+    "github_repo": "slideio-doc",
+    "github_version": "main",
+    "conf_py_path": "/docs/source/",
 }
 
 # -- Options for EPUB output -------------------------------------------------
