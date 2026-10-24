@@ -156,7 +156,10 @@ def _drop_namespace_duplicates(record):
     if getattr(record, "type", None) == "duplicate_declaration" and getattr(
         record, "subtype", None
     ) == "cpp":
-        return record.args[-1] not in _namespaces
+        # Read the formatted message: records from parallel build workers
+        # arrive with their arguments already merged into it.
+        match = re.search(r"Declaration is '\.\. cpp:\w+:: (.+?)'", record.getMessage())
+        return not (match and match.group(1) in _namespaces)
     return True
 
 
