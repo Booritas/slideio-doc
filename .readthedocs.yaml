@@ -7,6 +7,16 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.12"
+  # conf.py runs Doxygen on the SlideIO headers for the C++ API reference.
+  apt_packages:
+    - doxygen
+
+# The SlideIO library sources, for the C++ API reference and the version.
+# Its own submodules are build dependencies the documentation does not need.
+submodules:
+  include:
+    - extern/slideio
+  recursive: false
 
 python:
   install:

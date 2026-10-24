@@ -90,6 +90,7 @@ python/api/index
 
 cpp/index
 cpp/api
+cpp/reference/index
 cpp/third-party
 ```
 

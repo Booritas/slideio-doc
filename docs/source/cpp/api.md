@@ -42,6 +42,5 @@ if(numScenes>0) {
 
 ## Reference
 
-The full class and function reference is generated with Doxygen from the
-library headers:
-[SlideIO C++ API reference](https://www.slideio.com/doxygen/html/).
+The [C++ API reference](reference/index.md) documents every public header,
+grouped by module.
