@@ -1,8 +1,7 @@
 # SlideIO
 
-```{image} _static/slideio.png
-:alt: SlideIO
-:width: 320px
+```{image} _static/slideio.webp
+:alt: SlideIO reads a whole slide and its zoom pyramid, from Python or C++
 ```
 
 **SlideIO** is an open-source library for reading medical images, with a C++ API
