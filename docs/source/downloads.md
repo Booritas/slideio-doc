@@ -57,7 +57,7 @@ screenshot, the feature list and the keyboard shortcuts.
 | Platform | Package |
 |---|---|
 | Windows 10/11 (x86-64) | Installer (`.exe`) or portable archive (`.zip`) |
-| macOS (Apple Silicon) | Disk image (`.dmg`) |
+| macOS (Apple Silicon or Intel) | Disk image (`.dmg`) |
 | Debian 12+ / Ubuntu 22.04+ | Package (`.deb`) |
 | Other Linux (x86-64) | Archive (`.tar.gz`) |
 
