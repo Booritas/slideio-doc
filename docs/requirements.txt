@@ -1,2 +1,5 @@
-sphinx==7.1.2
-sphinx-rtd-theme==1.3.0rc1
+sphinx==9.2.0
+myst-parser==5.1.0
+furo==2025.12.19
+# The Python API reference is generated with autodoc from the installed module.
+slideio==2.10.0
