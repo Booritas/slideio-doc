@@ -5,8 +5,11 @@ slide is displayed: whether it is shown, its colour, its brightness and the
 range of values mapped from black to full colour. It is most useful for
 fluorescence and multiplexed slides, but works for any slide.
 
-% SCREENSHOT: channels-pane.png — the Channels pane for a 4-channel
-% fluorescence slide with one channel expanded to show its histogram.
+```{figure} ../_static/channels-pane.webp
+:alt: The Channels pane
+
+The Channels pane for a five-channel fluorescence slide.
+```
 
 Changes affect only what you see; the slide file is never modified. The pane is
 reset to the slide's defaults each time a slide or scene opens.

@@ -84,7 +84,11 @@ Annotation categories
 
 These three are the only preferences. Click **OK** to apply them.
 
-% SCREENSHOT: preferences.png — the Preferences dialog with the three fields.
+```{figure} ../_static/preferences.webp
+:alt: The Preferences dialog
+
+The Preferences dialog.
+```
 
 ## Where the viewer keeps its data
 

@@ -16,7 +16,12 @@ docked it.
 
 ## Scenes
 
-% SCREENSHOT: scenes-pane.png — the Scenes pane for a multi-scene CZI.
+```{figure} ../_static/scenes-pane.webp
+:alt: The Scenes pane
+
+The Scenes pane for a Leica SCN file with several scenes. The scene on
+screen has a blue border.
+```
 
 The Scenes pane shows a thumbnail of every scene in the file, with its name, or
 "Scene 1", "Scene 2" ... when the file gives none. The scene on screen has a

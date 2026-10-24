@@ -1,7 +1,12 @@
 # The main window
 
-% SCREENSHOT: window-overview.png — the main window with a slide open, the
-% minimap, zoom indicator and a couple of panes visible, with callouts.
+```{figure} ../_static/window-overview.webp
+:alt: The main window
+
+The main window with a slide open: the minimap at the top right, the zoom
+indicator at the bottom left, and the Scenes and Annotations panes on the
+right.
+```
 
 The window has five parts:
 

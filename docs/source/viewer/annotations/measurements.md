@@ -51,7 +51,11 @@ has no calibration — measurements are in pixels."
 Choose **View > Calibration...**. The dialog shows the size recorded in the
 slide ("From the slide's metadata"), or "none".
 
-% SCREENSHOT: calibration-dialog.png — the Calibration dialog.
+```{figure} ../../_static/calibration-dialog.webp
+:alt: The Calibration dialog
+
+The Calibration dialog for a slide that records its pixel size.
+```
 
 1. Enter the **Pixel width** in µm per pixel.
 2. Leave **Square pixels** ticked if the pixel is as tall as it is wide;
