@@ -67,6 +67,6 @@ The notebooks download the slides they use, so no test corpus is needed.
 ## Reference documentation
 
 For the API itself rather than worked examples, see the
-[Python API](python/index.md) and
-[C++ API](cpp/index.md) pages, and the
-[Python API reference](python/api/index.rst).
+[Python API](index.md) and
+[C++ API](../cpp/index.md) pages, and the
+[Python API reference](api/index.rst).

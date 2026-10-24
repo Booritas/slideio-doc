@@ -11,15 +11,7 @@ viewer depends on, Qt included, ships inside the package.
 
 ## Download
 
-Get the package for your platform from the
-[latest release](https://github.com/Booritas/slideio-view/releases/latest).
-
-| Platform | Package |
-|---|---|
-| Windows 10/11 (x86-64) | Installer (`.exe`) or portable archive (`.zip`) |
-| macOS | Disk image (`.dmg`): `macos-arm64` for Apple Silicon, `macos-x86_64` for Intel |
-| Debian 12+ / Ubuntu 22.04+ | Package (`.deb`) |
-| Other Linux (x86-64) | Archive (`.tar.gz`) |
+Get the package for your platform from [Downloads](downloads.md).
 
 ### Windows
 

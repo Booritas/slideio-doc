@@ -62,12 +62,10 @@ Layout
 
    docs/source/
      index.md            home page
-     python/             Python module: install, tutorial, colour management, API reference
-     cpp/                C++ library: install, API overview, reference, third-party libraries
-     viewer/             SlideIO Viewer
+     python/             Python module: install, tutorials, colour management, API reference, downloads
+     cpp/                C++ library: install, API overview, reference, third-party libraries, downloads
+     viewer/             SlideIO Viewer, downloads
+     tools/              slideio-converter and slideio-tiffinspector, downloads
      drivers.md          image drivers and the formats they read
-     tools.md            slideio-converter and slideio-tiffinspector
-     tutorials.md        Jupyter notebook tutorials
-     downloads.md        packages for all three projects
      news/               release notes
      _static/            images and favicon

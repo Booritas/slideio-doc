@@ -47,7 +47,7 @@ which covers any graphics hardware of the last decade.
 - [Download SlideIO Viewer](https://github.com/Booritas/slideio-view/releases/latest)
 - [Viewer page](../viewer/index.md) — features, keyboard shortcuts and
   the full list of packages
-- [All SlideIO downloads](../downloads.md)
+- [All viewer packages](../viewer/downloads.md)
 
 The Windows installer and the macOS disk image are not signed by a registered
 developer, so both systems will warn on first run. The release page explains how

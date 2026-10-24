@@ -20,7 +20,7 @@ slide container, and `slideio::Scene`, a single raster image within it.
 ### Installing a release package
 
 Prebuilt packages for Windows, macOS and Linux are on the
-[Downloads page](../downloads.md). They are self-contained:
+[Downloads page](downloads.md). They are self-contained:
 no Conan, no CMake toolchain file and no build of SlideIO is needed to use
 one. A package carries the headers, the shared libraries, the CMake package
 configuration, and the `slideio-converter` and `slideio-tiffinspector`
@@ -110,5 +110,5 @@ commands for Linux, macOS and Windows.
 ## Next steps
 
 - [C++ API](api.md): the classes and a first example.
-- [Command line tools](../tools.md) shipped with every package.
+- [Command line tools](../tools/index.md) shipped with every package.
 - [Image drivers](../drivers.md) and what each format exposes.

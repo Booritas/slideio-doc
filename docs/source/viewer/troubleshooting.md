@@ -15,7 +15,7 @@ The error box shows the reason given by the reader. Try:
   Slide...**;
 - for a DICOM study, **File > Open DICOM Folder...** on the study folder;
 - checking the slide with the Python module or `slideio-tiffinspector`
-  ([Command line tools](../tools.md)).
+  ([Command line tools](../tools/index.md)).
 
 Details are in the log: **File > Open Log File**.
 

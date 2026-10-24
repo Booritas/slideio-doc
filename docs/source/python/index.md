@@ -23,8 +23,7 @@ pip install slideio
 Wheels are published for Python 3.9 through 3.14 on Windows x86-64, macOS
 (Apple Silicon and Intel) and Linux x86-64. The wheel carries the SlideIO
 library inside it, so no compiler, no Conan and no separate library
-installation is needed. See the [Downloads page](../downloads.md) for every way
-to get SlideIO.
+installation is needed. See [Downloads](downloads.md) for the release files.
 
 ### Building the module from the source
 
@@ -50,4 +49,4 @@ block = scene.read_block()
 - [Quick tutorial](tutorial.md): short recipes for the everyday tasks.
 - [Colour management](color-management.md): ICC profiles and colour conversion.
 - [API reference](api/index.rst): every class and function.
-- [Jupyter notebook tutorials](../tutorials.md) with complete worked examples.
+- [Jupyter notebook tutorials](tutorials.md) with complete worked examples.

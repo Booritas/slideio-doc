@@ -105,4 +105,4 @@ The [slideio-tutorial](https://github.com/Booritas/slideio-tutorial) repository
 contains Jupyter notebooks with complete examples, among them
 [zoom-levels.ipynb](https://github.com/Booritas/slideio-tutorial/blob/master/zoom-levels.ipynb)
 on reading from an explicitly selected pyramid level. See
-[Tutorials](../tutorials.md) for the full list.
+[Tutorials](tutorials.md) for the full list.

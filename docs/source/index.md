@@ -27,7 +27,7 @@ with [OpenCV](https://opencv.org).
 : A desktop application for Windows, macOS and Linux that renders a whole slide
   with GPU-accelerated panning and zooming. No code to write.
 
-[Command line tools](tools.md)
+[Command line tools](tools/index.md)
 : `slideio-converter` and `slideio-tiffinspector`, shipped with every library
   package.
 
@@ -79,8 +79,10 @@ channels, associated images and metadata.
 
 python/index
 python/tutorial
+python/tutorials
 python/color-management
 python/api/index
+python/downloads
 ```
 
 ```{toctree}
@@ -91,6 +93,7 @@ cpp/index
 cpp/api
 cpp/reference/index
 cpp/third-party
+cpp/downloads
 ```
 
 ```{toctree}
@@ -98,6 +101,15 @@ cpp/third-party
 :caption: Viewer
 
 viewer/index
+viewer/downloads
+```
+
+```{toctree}
+:hidden:
+:caption: Command line tools
+
+tools/index
+tools/downloads
 ```
 
 ```{toctree}
@@ -105,9 +117,6 @@ viewer/index
 :caption: Reference
 
 drivers
-tools
-tutorials
-downloads
 ```
 
 ```{toctree}
