@@ -59,7 +59,7 @@ Slides can also be opened without writing any code. SlideIO Viewer renders a
 whole slide with GPU-accelerated panning and zooming, and shows its scenes,
 channels, associated images and metadata.
 
-```{image} _static/viewer.png
+```{image} _static/viewer.webp
 :alt: SlideIO Viewer
 :target: viewer/index.html
 ```

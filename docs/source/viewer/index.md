@@ -9,7 +9,7 @@ distances and angles, and export the results for QuPath or a spreadsheet.
 The viewer is built on the SlideIO library, so it reads every format the
 library supports, and it runs on Windows, macOS and Linux.
 
-![SlideIO Viewer](../_static/viewer.png)
+![SlideIO Viewer](../_static/viewer.webp)
 
 :::{note}
 This guide describes the upcoming release of SlideIO Viewer. Annotations,

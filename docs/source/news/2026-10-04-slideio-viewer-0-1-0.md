@@ -7,7 +7,7 @@ application for opening and navigating whole-slide images. It reads every format
 the SlideIO library supports, runs on Windows, macOS and Linux, and requires no
 programming at all.
 
-![SlideIO Viewer](../_static/viewer.png)
+![SlideIO Viewer](../_static/viewer.webp)
 
 ## What it does
 
