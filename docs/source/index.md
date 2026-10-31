@@ -70,8 +70,9 @@ channels, associated images and metadata.
 ## Latest news
 
 - [Version 2.10.0 – Parallel Reads, Colour Management and Binary Distributions](news/2026-09-29-version-2-10-0.md)
-- [SlideIO Viewer 0.1.0 – A Desktop Application for Whole-Slide Images](news/2026-10-04-slideio-viewer-0-1-0.md)
-- [All release notes](news/index.md)
+- {ref}`SlideIO Viewer 0.2.0 – Annotations, Measurements and Layers <viewer-0-2-0>`
+- [Library release notes](news/index.md)
+- [Viewer release notes](viewer/release-notes.md)
 
 ```{toctree}
 :hidden:
@@ -101,6 +102,7 @@ cpp/downloads
 :caption: Viewer
 
 viewer/index
+viewer/release-notes
 viewer/downloads
 ```
 

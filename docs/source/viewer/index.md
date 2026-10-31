@@ -11,12 +11,6 @@ library supports, and it runs on Windows, macOS and Linux.
 
 ![SlideIO Viewer](../_static/viewer.webp)
 
-:::{note}
-This guide describes the upcoming release of SlideIO Viewer. Annotations,
-measurements and layers are not part of version 0.1.2; they arrive in the next
-release.
-:::
-
 ## Features
 
 - **GPU-accelerated rendering.** Tiles are drawn with OpenGL, so panning and

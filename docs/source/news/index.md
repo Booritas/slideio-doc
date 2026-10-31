@@ -1,11 +1,11 @@
-# Release notes
+# Library release notes
 
-Releases of the SlideIO library, the Python module and SlideIO Viewer, newest first.
+Releases of the SlideIO library, the Python module and the command line tools,
+newest first. SlideIO Viewer has [release notes of its own](../viewer/release-notes.md).
 
 ```{toctree}
 :maxdepth: 1
 
-2026-10-04-slideio-viewer-0-1-0
 2026-09-29-version-2-10-0
 2026-08-22-version-2-9-0
 2026-06-05-version-2-8-1

@@ -64,8 +64,8 @@ Layout
      index.md            home page
      python/             Python module: install, tutorials, colour management, API reference, downloads
      cpp/                C++ library: install, API overview, reference, third-party libraries, downloads
-     viewer/             SlideIO Viewer, downloads
+     viewer/             SlideIO Viewer: user guide, release notes, downloads
      tools/              slideio-converter and slideio-tiffinspector, downloads
      drivers.md          image drivers and the formats they read
-     news/               release notes
+     news/               library release notes
      _static/            images and favicon
