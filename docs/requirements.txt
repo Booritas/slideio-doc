@@ -2,5 +2,6 @@ sphinx==9.2.0
 myst-parser==5.1.0
 sphinx-rtd-theme==3.1.0
 breathe==5.1.0
+sphinx-notfound-page==1.1.0
 # The Python API reference is generated with autodoc from the installed module.
 slideio==2.10.0

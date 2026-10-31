@@ -179,7 +179,13 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
+    "notfound.extension",
 ]
+
+# 404.md is served by Read the Docs for any URL that does not exist, so its
+# styles, scripts and sidebar links must be absolute. The site is published
+# as a single version at the root of the domain.
+notfound_urls_prefix = "/"
 
 source_suffix = {
     ".rst": "restructuredtext",
