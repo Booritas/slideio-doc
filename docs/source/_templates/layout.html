@@ -1,0 +1,13 @@
+{#
+  Adds GoatCounter page-view statistics to every page of the theme, including
+  the generated API reference. conf.py sets "goatcounter" in html_context only
+  for the published Read the Docs build.
+#}
+{% extends "!layout.html" %}
+{%- block extrahead %}
+  {{ super() }}
+  {%- if goatcounter %}
+  <script data-goatcounter="https://booritas.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  {%- endif %}
+{%- endblock %}

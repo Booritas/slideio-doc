@@ -3,6 +3,7 @@
 
 import importlib.metadata
 import logging as pylogging
+import os
 import re
 import shutil
 import subprocess
@@ -221,6 +222,14 @@ html_context = {
     "github_repo": "slideio-doc",
     "github_version": "main",
     "conf_py_path": "/docs/source/",
+    # GoatCounter page-view statistics, added by _templates/layout.html. Only
+    # the published site is counted: a local build leaves READTHEDOCS unset,
+    # and pull request previews are built as "external" versions, so neither
+    # emits the script. GoatCounter sets no cookies and stores no personal data.
+    "goatcounter": (
+        os.environ.get("READTHEDOCS") == "True"
+        and os.environ.get("READTHEDOCS_VERSION_TYPE") != "external"
+    ),
 }
 
 # -- Options for EPUB output -------------------------------------------------
