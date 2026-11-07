@@ -18,6 +18,7 @@ each driver has a unique ID. The following drivers are available:
 | QPTIFF | PerkinElmer Vectra QPTIFF | *.qptiff |
 | OMETIFF | [OME-TIFF](https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/) image format | *.ome.tif, *.ome.tiff, *.ome.tf2, *.ome.tf8, *.ome.btf |
 | PHTIFF | [Philips](https://www.usa.philips.com/healthcare/resources/landing/philips-intellisite-pathology-solution) TIFF whole slide images | *.tif, *.tiff |
+| MRXS | [3DHISTECH](https://www.3dhistech.com/) MIRAX whole slide images | *.mrxs, Slidedat.ini |
 
 Three drivers accept `*.tif` and `*.tiff`: GDAL, OMETIFF and PHTIFF. They are
 told apart by the content of the file, so opening a slide with the default
@@ -40,6 +41,7 @@ that.
 | QPTIFF | yes | yes | yes |
 | OMETIFF | yes | yes | yes |
 | PHTIFF | no | no | no |
+| MRXS | no | no | no |
 
 ## CZI driver
 
@@ -286,3 +288,45 @@ the following auxiliary images:
 - Thumbnail
 - Macro
 - Label
+
+## MRXS driver
+
+The driver opens 3DHISTECH MIRAX slides scanned by Pannoramic scanners. A MIRAX
+slide is a bundle rather than a single file: an entry file `<name>.mrxs` and,
+beside it, a directory `<name>` holding `Slidedat.ini`, an index file and the
+data files. Open the slide through the `.mrxs` file, or through `Slidedat.ini`
+itself, which also opens a bundle whose `.mrxs` file is missing. The extension
+is matched in any letter case.
+
+A *Slide* object contains a single *Scene* object: the slide's 8-bit RGB image,
+with every zoom level the bundle stores. MIRAX stores the image as overlapping
+camera photos; the driver places each photo at its recorded position and
+combines the overlaps the way OpenSlide does, so a region read from the scene
+closely matches what OpenSlide shows (JPEG tiles can differ slightly in colour,
+because the two libraries use different JPEG decoders). Areas without image data take the slide's
+background colour. Fluorescence slides are read as their RGB rendering; slides
+whose filters are stored in more than one image group, such as five-channel
+multiplex scans, are not supported and are reported as such when opened.
+
+### Scene naming
+
+The scene is named after the slide's data directory, which is the name of the
+`.mrxs` file without its extension.
+
+### Metadata
+
+The *raw_metadata* property of the *Slide* and *Scene* objects returns the
+`Slidedat.ini` file exactly as written. The *metadata* property returns a tree
+with two branches: `ini`, every group and key of `Slidedat.ini`, and `mrxs`,
+what the driver derived from them -- zoom levels with their sizes and image
+formats, the source of the camera positions, the bounds of the scanned area, and
+the layers of the bundle that are not rendered.
+
+### Auxiliary images
+
+The driver supports auxiliary images for *Slide* objects. A slide may contain
+the following auxiliary images:
+
+- Macro
+- Label
+- Thumbnail
