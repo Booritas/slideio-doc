@@ -16,9 +16,13 @@ The file-type list at the bottom of the dialog decides how the file is read:
 | Entry | Extensions |
 |---|---|
 | Aperio FluoroImage | `*.afi` |
+| Roche Ventana BIF | `*.bif` |
 | Carl Zeiss CZI | `*.czi` |
 | DICOM | `*.dcm` |
 | Generic (GDAL) | `*.tif *.tiff *.png *.jpg *.jpeg *.gif *.bmp` |
+| Leica LIF | `*.lif` |
+| 3DHISTECH MIRAX | `*.mrxs` |
+| Nikon ND2 | `*.nd2` |
 | Hamamatsu NDPI | `*.ndpi` |
 | OME-TIFF | `*.ome.tif *.ome.tiff` |
 | PerkinElmer QPTIFF | `*.qptiff` |
@@ -29,6 +33,9 @@ The file-type list at the bottom of the dialog decides how the file is read:
 
 Philips TIFF slides have no entry of their own: open them through **All
 Supported Slides**, which recognises them by their contents.
+
+A 3DHISTECH MIRAX slide is a `.mrxs` file plus a data directory of the same
+name. Open the `.mrxs` file; its data directory has to sit beside it.
 
 ## Open a DICOM study
 

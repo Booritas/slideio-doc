@@ -3,6 +3,27 @@
 Releases of SlideIO Viewer, newest first. Packages for every release are on the
 [releases page](https://github.com/Booritas/slideio-view/releases).
 
+(viewer-0-3-0)=
+
+## 0.3.0 – 2026-11-14
+
+[Changes since 0.2.0](https://github.com/Booritas/slideio-view/compare/v0.2.0...v0.3.0)
+
+### Added
+
+- **3DHISTECH MIRAX (`.mrxs`) slides.** The Open dialog has a filter for them,
+  and macOS offers the viewer for `.mrxs` files in Finder. Open the `.mrxs`
+  entry file; its data directory has to sit beside it.
+- **Roche Ventana BIF (`.bif`), Leica LIF (`.lif`) and Nikon ND2 (`.nd2`)
+  images.** Each has its own filter in the Open dialog and joins "All
+  Supported Slides" and drag-and-drop, and macOS offers the viewer for these
+  files in Finder.
+
+### Changed
+
+- Leica LIF channels whose lookup table is red, green, blue, cyan, magenta or
+  yellow open in that colour instead of a default one.
+
 (viewer-0-2-0)=
 
 ## 0.2.0 – 2026-10-31

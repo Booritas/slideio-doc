@@ -50,6 +50,10 @@ the specifics of one or more formats:
 | **GDAL** | General image formats | *.png, *.jpeg, *.jpg, *.tif, *.tiff, *.bmp, *.gif, *.gtiff, *.gtif, *.ntif, *.jp2 | - | - |
 | **OMETIFF** | OME-TIFF image format | *.ome.tiff, *.ome.tif | [OME-TIFF](https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/) |  |
 | **PHTIFF** | Philips TIFF whole slide images | *.tif, *.tiff | [Philips](https://www.philips.com/) | [Philips IntelliSite Pathology Solution](https://www.usa.philips.com/healthcare/resources/landing/philips-intellisite-pathology-solution) |
+| **MRXS** | [3DHISTECH MIRAX](https://openslide.org/formats/mirax/) | *.mrxs (or the bundle's Slidedat.ini) | [3DHISTECH](https://www.3dhistech.com/) | Tested with MIRAX bundles from the OpenSlide test-data collection |
+| **BIF** | [Ventana BIF](https://diagnostics.roche.com/global/en/products/instruments/ventana-dp-200-ins-2575.html) | *.bif | [Roche Diagnostics](https://diagnostics.roche.com/) | Tested with Ventana iScan (Coreo/HT, 2011) and [VENTANA DP 200](https://diagnostics.roche.com/global/en/products/instruments/ventana-dp-200-ins-2575.html) |
+| **LIF** | [Leica LIF](https://www.openmicroscopy.org/bio-formats/) | *.lif | [Leica Microsystems](https://www.leica-microsystems.com/) | Tested with Leica LAS X files from the Bio-Formats sample set |
+| **ND2** | [Nikon ND2](https://www.openmicroscopy.org/bio-formats/) | *.nd2 | [Nikon](https://www.microscope.healthcare.nikon.com/) | Tested with NIS-Elements files from the Bio-Formats sample set |
 
 See [Image drivers](drivers.md) for what each driver exposes.
 
@@ -69,8 +73,8 @@ channels, associated images and metadata.
 
 ## Latest news
 
-- [Version 2.10.0 – Parallel Reads, Colour Management and Binary Distributions](news/2026-09-29-version-2-10-0.md)
-- {ref}`SlideIO Viewer 0.2.0 – Annotations, Measurements and Layers <viewer-0-2-0>`
+- [Version 2.11.0 – MRXS, BIF, LIF and ND2 Drivers and Computed Scenes](news/2026-11-14-version-2-11-0.md)
+- {ref}`SlideIO Viewer 0.3.0 – MIRAX, BIF, LIF and ND2 Slides <viewer-0-3-0>`
 - [Library release notes](news/index.md)
 - [Viewer release notes](viewer/release-notes.md)
 
