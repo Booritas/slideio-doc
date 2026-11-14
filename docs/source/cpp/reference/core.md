@@ -1,6 +1,6 @@
 # core module
 
-Types shared by every module: enumerations, geometry structs, metadata, colour profiles, zoom level information and exceptions. Headers are included as `<slideio/core/...>`.
+Types shared by every module: enumerations, geometry structs, metadata, channel attribute names, colour profiles, zoom level information and exceptions. Headers are included as `<slideio/core/...>`.
 
 ## `slideio_enums.hpp`
 
@@ -40,6 +40,11 @@ Types shared by every module: enumerations, geometry structs, metadata, colour p
 ## `metadata.hpp`
 
 ```{doxygenfile} metadata.hpp
+```
+
+## `channelattributes.hpp`
+
+```{doxygenfile} channelattributes.hpp
 ```
 
 ## `colorprofile.hpp`

@@ -6,6 +6,7 @@ newest first. SlideIO Viewer has [release notes of its own](../viewer/release-no
 ```{toctree}
 :maxdepth: 1
 
+2026-11-14-version-2-11-0
 2026-09-29-version-2-10-0
 2026-08-22-version-2-9-0
 2026-06-05-version-2-8-1

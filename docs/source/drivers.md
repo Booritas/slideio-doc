@@ -19,6 +19,9 @@ each driver has a unique ID. The following drivers are available:
 | OMETIFF | [OME-TIFF](https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/) image format | *.ome.tif, *.ome.tiff, *.ome.tf2, *.ome.tf8, *.ome.btf |
 | PHTIFF | [Philips](https://www.usa.philips.com/healthcare/resources/landing/philips-intellisite-pathology-solution) TIFF whole slide images | *.tif, *.tiff |
 | MRXS | [3DHISTECH](https://www.3dhistech.com/) MIRAX whole slide images | *.mrxs, Slidedat.ini |
+| BIF | [Roche Ventana](https://diagnostics.roche.com/) BIF whole slide images | *.bif |
+| LIF | [Leica](https://www.leica-microsystems.com/) LIF images | *.lif |
+| ND2 | [Nikon](https://www.microscope.healthcare.nikon.com/) NIS-Elements ND2 images | *.nd2 |
 
 Three drivers accept `*.tif` and `*.tiff`: GDAL, OMETIFF and PHTIFF. They are
 told apart by the content of the file, so opening a slide with the default
@@ -42,6 +45,9 @@ that.
 | OMETIFF | yes | yes | yes |
 | PHTIFF | no | no | no |
 | MRXS | no | no | no |
+| BIF | yes | no | no |
+| LIF | yes | yes | yes |
+| ND2 | yes | yes | yes |
 
 ## CZI driver
 
@@ -330,3 +336,138 @@ the following auxiliary images:
 - Macro
 - Label
 - Thumbnail
+
+## BIF driver
+
+The driver opens Roche Ventana BIF whole slide images produced by Ventana iScan
+(Coreo/HT) and VENTANA DP 200 scanners. A BIF file is a TIFF file whose first
+directory carries `iScan` XML metadata; a file without it is refused. The
+extension is matched in any letter case.
+
+Each scanned area of interest (AOI) of the slide is a separate *Scene* object,
+an 8-bit RGB image with every zoom level the file stores. The scanner records
+each AOI as overlapping tiles together with the geometry of every boundary
+between them; the driver stitches the tiles with that geometry, as QuPath does.
+A file whose image carries no stitching information opens as a single
+unstitched scene. The objective magnification of a scene is reported in the
+*magnification* property, and the ICC profile embedded by DP 200 scanners is
+reported by the scene.
+
+BIF files with more than one focal layer (Z stacks) are not supported yet and
+are refused when opened.
+
+### Scene naming
+
+Scenes are named `AOI` followed by the index of the area, `AOI0`, `AOI1` and
+so on, in the order the file lists them. Areas that were not scanned are left
+out, so the indices are not necessarily consecutive. A scene without stitching
+information is named `Image`.
+
+### Metadata
+
+The *raw_metadata* property of a *Slide* object returns the `iScan` XML
+document of the first TIFF directory. The *raw_metadata* property of a *Scene*
+object returns the XML description of its area of interest. The *metadata*
+property of both objects returns the XML as a navigable tree.
+
+### Auxiliary images
+
+The driver supports auxiliary images for *Slide* objects. A slide may contain
+the following auxiliary images:
+
+- Label
+- Thumbnail
+- Probability (DP 200 probability map)
+
+## LIF driver
+
+The driver opens Leica LIF projects written by Leica LAS X. A LIF
+file holds a tree of images; each image is exposed as a separate *Scene*
+object, and a tile scan gives one scene per field. Tiles are not stitched; a
+"Merged" image written by LAS X opens as an ordinary scene. The extension is
+matched in any letter case. `.lifext`, LOF and XLIF files are not read.
+
+Scenes hold 8- and 16-bit integer and 16-, 32- and 64-bit floating point
+channels, with Z slices and time frames where the image has them. Each scene
+has a single level; reads far below native size are downscaled from it in
+bounded memory. The resolution, Z and time intervals and the objective
+magnification are read from the image description, the number of significant
+bits of each channel is reported (for example 12 bits stored in 16-bit
+samples), and per-plane timestamps are available when the file records one
+for every plane.
+
+An image the driver cannot read, such as a lambda scan or an image with 32- or
+64-bit integer samples, is left out of the scene list with a warning instead of
+failing the whole project. Scene indices then no longer match the order of the
+images in the file; select scenes by name where it matters.
+
+### Scene naming
+
+A scene is named by the path of its image inside the project, with folder
+names joined by `/`, for example `TileScan 1/Merged`. The fields of a tile scan
+are named `<path>/Field 1`, `<path>/Field 2` and so on.
+
+### Channel attributes
+
+Every attribute of the channel description in the file (`LUTName`,
+`ChannelTag`, `Min`, `Max` and others) is reported as a channel attribute. A
+channel whose lookup table is red, green, blue, cyan, magenta, yellow or gray
+also has a `Color` attribute.
+
+### Metadata
+
+The *raw_metadata* property of a *Slide* object returns the XML document of the
+project. The *raw_metadata* property of a *Scene* object returns the XML
+element of its image, without the elements of other images. The *metadata*
+property of both objects returns the XML as a navigable tree.
+
+### Auxiliary images
+
+The driver does not support auxiliary images.
+
+## ND2 driver
+
+The driver opens Nikon ND2 files written by NIS-Elements: chunked files
+(versions 2 and 3) and legacy JPEG 2000 files, including legacy files with 9- to
+15-bit codestreams. The extension is matched in any letter case.
+
+Each XY position of the experiment is a separate *Scene* object, with the Z
+slices and time frames taken from the experiment loops. Scenes hold 8- and
+16-bit integer and 32-bit floating point channels; every component is a
+channel of its own, so an RGB acquisition gives three channels. Each scene has
+a single level; reads far below native size are downscaled from it in bounded
+memory. The pixel size, the Z and time intervals and the objective
+magnification are reported, the magnification being parsed from the objective
+name (`60x`) where the file states no number. Per-plane timestamps are
+available when every frame records one. The number of time frames matches the
+frames actually present in the file, and missing frames read as background.
+
+A file whose chunk map is missing or out of date, as left by an interrupted
+acquisition, is recovered by scanning the file, with a warning. Files with
+lossy compression, tiled frames or more than one time loop are refused.
+
+### Scene naming
+
+A scene is named after its XY position as named in the file, or `Position 1`,
+`Position 2` and so on for unnamed positions; a duplicated name gets the
+position number appended. A file without an XY loop has a single scene named
+after the file.
+
+### Channel attributes
+
+Each channel is named after its description in the file; the components of an
+RGB channel are named `<name> R`, `<name> G` and `<name> B`. The channel
+attributes are `Color` (`#RRGGBB`), `ND2Channel`, `Component` and
+`FluorescentProbe`.
+
+### Metadata
+
+The *raw_metadata* property of a *Slide* object returns a JSON document with
+the image attributes, metadata, text information and calibration records of the
+file. The *raw_metadata* property of a *Scene* object returns the JSON record of
+its XY position. The *metadata* property of both objects returns the JSON as a
+navigable tree.
+
+### Auxiliary images
+
+The driver does not support auxiliary images.
