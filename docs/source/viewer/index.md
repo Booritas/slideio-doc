@@ -38,7 +38,8 @@ library supports, and it runs on Windows, macOS and Linux.
 The viewer reads every format the SlideIO library supports: Aperio SVS and AFI,
 Leica SCN and LIF, Zeiss CZI and ZVI, Hamamatsu NDPI, Olympus VSI, 3DHISTECH
 MIRAX, Roche Ventana BIF, Nikon ND2, DICOM whole-slide images, PerkinElmer
-QPTIFF, OME-TIFF, Philips TIFF, and ordinary TIFF, PNG and JPEG images. See [Image drivers](../drivers.md) for the file extensions.
+QPTIFF, OME-TIFF, Philips TIFF, and ordinary TIFF, PNG and JPEG images. See
+[Supported formats](../overview/formats.md) for the file extensions.
 
 ## Contents
 

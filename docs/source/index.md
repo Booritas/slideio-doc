@@ -13,7 +13,7 @@ pyramid stored in the image. SlideIO supports 2D slides as well as 3D data sets
 and time series. The Python module delivers a raster as a numpy array, compatible
 with [OpenCV](https://opencv.org).
 
-## Products
+## Components
 
 [SlideIO for Python](python/index.md)
 : `pip install slideio`. The module most users want: open a slide, read regions
@@ -31,31 +31,15 @@ with [OpenCV](https://opencv.org).
 : `slideio-converter` and `slideio-tiffinspector`, shipped with every library
   package.
 
+[Components](overview/components.md) describes each one and how they fit
+together.
+
 ## Supported formats
 
-SlideIO accesses images through a system of image drivers, each implementing
-the specifics of one or more formats:
-
-| **Driver** | **File format** | **File extensions** | **Format developer** | **Scanners** |
-|---|---|---|---|---|
-| **SVS** | [Aperio SVS](https://www.leicabiosystems.com/en-de/digital-pathology/manage/aperio-imagescope/) | *.svs | [Leica Microsystems](https://www.leicabiosystems.com/) | [Aperio GT 450 and Aperio GT 450 DX](https://www.leicabiosystems.com/en-de/digital-pathology/scan/) |
-| **AFI** | [Aperio AFI - Fluorescent images](https://www.pathologynews.com/fileformats/leica-afi/) | *.afi | [Leica Microsystems](https://www.leicabiosystems.com/) |  |
-| **SCN** | [Leica](https://www.leica-microsystems.com/) SCN images | *.scn | [Leica Microsystems](https://www.leicabiosystems.com/) | [Leica SCN400](https://www.leicabiosystems.com/en-de/news-events/leica-microsystems-launches-scn400-f-combined-fluorescence-and-brightfield-slide/) |
-| **CZI** | [Zeiss CZI](https://www.zeiss.com/microscopy/en/products/software/zeiss-zen/czi-image-file-format.html) images | *.czi | [Zeiss Microscopy](https://www.zeiss.com/microscopy/en/home.html) | [ZEISS Axioscan 7](https://www.zeiss.com/microscopy/en/products/imaging-systems/axioscan-for-biology.html) |
-| **ZVI** | Zeiss ZVI image format | *.zvi | [Zeiss Microscopy](https://www.zeiss.com/microscopy/en/home.html) |  |
-| **DCM** | DICOM images, including whole slide images | *.dcm, no extension |  |  |
-| **NDPI** | [Hamamatsu NDPI image format](https://www.hamamatsu.com/eu/en/product/life-science-and-medical-systems/digital-slide-scanner/U12388-01.html) | *.ndpi | [Hamamatsu](https://www.hamamatsu.com/eu/en.html) |  |
-| **VSI** | Olympus VSI image format | *.vsi |  |  |
-| **QPTIFF** | PerkinElmer Vectra QPTIFF | *.qptiff | [Akoya Biosciences](https://www.akoyabio.com/software-data-analysis/) | [Perkin Elmer Vectra scanner](https://www.akoyabio.com/phenoimager/instruments/vectra-3-0/) |
-| **GDAL** | General image formats | *.png, *.jpeg, *.jpg, *.tif, *.tiff, *.bmp, *.gif, *.gtiff, *.gtif, *.ntif, *.jp2 | - | - |
-| **OMETIFF** | OME-TIFF image format | *.ome.tiff, *.ome.tif | [OME-TIFF](https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/) |  |
-| **PHTIFF** | Philips TIFF whole slide images | *.tif, *.tiff | [Philips](https://www.philips.com/) | [Philips IntelliSite Pathology Solution](https://www.usa.philips.com/healthcare/resources/landing/philips-intellisite-pathology-solution) |
-| **MRXS** | [3DHISTECH MIRAX](https://openslide.org/formats/mirax/) | *.mrxs (or the bundle's Slidedat.ini) | [3DHISTECH](https://www.3dhistech.com/) | Tested with MIRAX bundles from the OpenSlide test-data collection |
-| **BIF** | [Ventana BIF](https://diagnostics.roche.com/global/en/products/instruments/ventana-dp-200-ins-2575.html) | *.bif | [Roche Diagnostics](https://diagnostics.roche.com/) | Tested with Ventana iScan (Coreo/HT, 2011) and [VENTANA DP 200](https://diagnostics.roche.com/global/en/products/instruments/ventana-dp-200-ins-2575.html) |
-| **LIF** | [Leica LIF](https://www.openmicroscopy.org/bio-formats/) | *.lif | [Leica Microsystems](https://www.leica-microsystems.com/) | Tested with Leica LAS X files from the Bio-Formats sample set |
-| **ND2** | [Nikon ND2](https://www.openmicroscopy.org/bio-formats/) | *.nd2 | [Nikon](https://www.microscope.healthcare.nikon.com/) | Tested with NIS-Elements files from the Bio-Formats sample set |
-
-See [Image drivers](drivers.md) for what each driver exposes.
+SlideIO reads 16 formats, among them Aperio SVS, Zeiss CZI, Hamamatsu NDPI,
+3DHISTECH MIRAX, Roche Ventana BIF, Philips TIFF, Leica SCN and LIF, Nikon ND2,
+Olympus VSI, OME-TIFF and DICOM whole slide images. See
+[Supported formats](overview/formats.md) for the full list.
 
 ## SlideIO Viewer
 
@@ -77,6 +61,14 @@ channels, associated images and metadata.
 - {ref}`SlideIO Viewer 0.3.0 – MIRAX, BIF, LIF and ND2 Slides <viewer-0-3-0>`
 - [Library release notes](news/index.md)
 - [Viewer release notes](viewer/release-notes.md)
+
+```{toctree}
+:hidden:
+:caption: Overview
+
+overview/components
+overview/formats
+```
 
 ```{toctree}
 :hidden:
