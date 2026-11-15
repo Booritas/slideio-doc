@@ -20,10 +20,10 @@ The module is installed from PyPI:
 pip install slideio
 ```
 
-Wheels are published for Python 3.9 through 3.14 on Windows x86-64, macOS
-(Apple Silicon and Intel) and Linux x86-64. The wheel carries the SlideIO
-library inside it, so no compiler, no Conan and no separate library
-installation is needed. See [Downloads](downloads.md) for the release files.
+Wheels are published for Python 3.9 through 3.15 on Windows x86-64, macOS on
+Apple Silicon and Linux x86-64, and for Python 3.9 through 3.13 on Intel macOS.
+The wheel carries the SlideIO library inside it, so no compiler, no Conan and
+no separate library installation is needed. See [Downloads](downloads.md) for the release files.
 
 ### Building the module from the source
 
