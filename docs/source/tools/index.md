@@ -68,6 +68,7 @@ image size.
 | `-z, --zoom-levels` | `-1` | Number of pyramid levels; `-1` chooses automatically |
 | `-n, --scene-index` | `0` | Which scene to convert, for slides holding several |
 | `-d, --driver` | `AUTO` | Input driver; `AUTO` detects the format |
+| `-o, --option` | none | Open option for the input driver, as `key=value`; repeat for several |
 | `-r, --rect` | whole image | Region of interest as `x,y,width,height` |
 | `--channel-range` | all | Channels as `start,end` |
 | `--slice-range` | all | Z-slices as `start,end` |
@@ -100,6 +101,13 @@ Convert one region of the second scene:
 
 ```
 slideio-converter image.czi region.ome.tiff -n 1 -r 10000,8000,4096,4096
+```
+
+Convert the full canvas of a MIRAX slide rather than the scanned area it is
+cropped to by default:
+
+```
+slideio-converter slide.mrxs slide.ome.tiff -o mrxs.crop_to_content=false
 ```
 
 Check what a conversion would produce without doing it:

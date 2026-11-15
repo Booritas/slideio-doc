@@ -99,6 +99,24 @@ the tiles at the right and bottom edge overhang the level. The part of such a
 rectangle that falls outside the level comes back as background. On a level
 that consists of a single tile the rectangle is the level itself.
 
+## Pass open options to a driver
+
+`open_slide` takes an optional `options` dict that changes how a driver opens
+the file. Each key is written `"<driver-id>.<name>"`, so one dict can carry
+options for several formats: keys for a driver other than the one opening the
+file are ignored. Values may be booleans, numbers or strings.
+
+```python
+import slideio
+# the full MIRAX canvas instead of the scanned area it is cropped to by default
+slide = slideio.open_slide("/data/test.mrxs", "AUTO", {"mrxs.crop_to_content": False})
+```
+
+A key without a driver prefix or with an unknown driver raises before the file
+is opened, and an option name the driver does not know raises when it opens
+the file. See [Open options](../drivers.md#open-options) for the options each
+driver takes.
+
 ## More examples
 
 The [slideio-tutorial](https://github.com/Booritas/slideio-tutorial) repository
