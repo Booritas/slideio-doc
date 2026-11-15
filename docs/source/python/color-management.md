@@ -23,7 +23,7 @@ it with {py:class}`~slideio.ColorManagement`:
 ```python
 import slideio
 
-slide = slideio.open_slide(file_path="/data/a.svs", driver_id="SVS")
+slide = slideio.open_slide("/data/a.svs", "SVS")
 scene = slide.get_scene(0)
 
 cm = slideio.ColorManagement()

@@ -28,6 +28,27 @@ told apart by the content of the file, so opening a slide with the default
 `AUTO` driver picks the right one. Name a driver explicitly only to override
 that.
 
+## Open options
+
+Some drivers take options that change how they open a file. Options are passed
+when the slide is opened, as a map of keys to values: the `options` argument of
+`open_slide` in Python, the third argument of `slideio::openSlide()` in C++,
+and `-o key=value` of `slideio-converter`.
+
+Every key is written `<driver-id>.<name>`. The driver ID is matched in any
+letter case, the name exactly. Keys addressed to a driver other than the one
+that opens the file are ignored, so one set of options can serve slides of
+several formats. A key without a driver prefix, or with a driver ID that does
+not exist, is rejected before the file is opened; an option name the driver
+does not know is rejected when the driver opens the file. Boolean values are
+written `true`, `false`, `1` or `0`; Python also accepts `True` and `False`.
+
+Converting a scene re-opens it with the options its slide was opened with.
+
+| Option | Default | Description |
+|---|---|---|
+| `mrxs.crop_to_content` | `true` | Crop an MRXS scene to the bounding box of the scanned area; `false` gives the full canvas. See [Cropping to the scanned area](#cropping-to-the-scanned-area). |
+
 ## Driver capabilities
 
 | Driver | Multiple scenes | Z stacks | Time frames |
@@ -314,6 +335,30 @@ background colour. Fluorescence slides are read as their RGB rendering; slides
 whose filters are stored in more than one image group, such as five-channel
 multiplex scans, are not supported and are reported as such when opened.
 
+### Cropping to the scanned area
+
+A MIRAX slide's nominal canvas is much larger than the area the scanner actually
+photographed, and most of it is background. By default the scene is cropped to the
+bounding box of the scanned area. That is the same rectangle OpenSlide publishes as
+`openslide.bounds-*` and QuPath displays. The scene's coordinates start at the
+corner of that box, and every zoom level shrinks to match. The box surrounds every
+photographed field, so it is not a tissue outline: two tissue pieces far apart
+give one box with background between them.
+
+For the full canvas, with the coordinates and level sizes OpenSlide reports,
+open the slide with the `mrxs.crop_to_content` option set to false:
+
+```python
+slide = slideio.open_slide("slide.mrxs", "MRXS", {"mrxs.crop_to_content": False})
+```
+
+```cpp
+auto slide = slideio::openSlide("slide.mrxs", "MRXS", {{"mrxs.crop_to_content", "false"}});
+```
+
+The `crop` entry of the `mrxs` metadata branch gives the box's offset and size on
+the full canvas, for translating coordinates between the two.
+
 ### Scene naming
 
 The scene is named after the slide's data directory, which is the name of the
@@ -325,8 +370,9 @@ The *raw_metadata* property of the *Slide* and *Scene* objects returns the
 `Slidedat.ini` file exactly as written. The *metadata* property returns a tree
 with two branches: `ini`, every group and key of `Slidedat.ini`, and `mrxs`,
 what the driver derived from them -- zoom levels with their sizes and image
-formats, the source of the camera positions, the bounds of the scanned area, and
-the layers of the bundle that are not rendered.
+formats, the source of the camera positions, the bounds of the scanned area,
+the crop box when the scene is cropped (`crop`), and the layers of the bundle
+that are not rendered.
 
 ### Auxiliary images
 

@@ -12,6 +12,14 @@ metadata.
 [image drivers](../drivers.md). Pass one of them to `openSlide()` to force a
 driver, or leave the driver empty to let the library detect the format.
 
+An overload of `openSlide()` takes a third argument, a `slideio::SlideOpenOptions`
+map of [open options](../drivers.md#open-options) for the driver:
+
+```cpp
+std::shared_ptr<slideio::Slide> slide =
+    slideio::openSlide(path, "", {{"mrxs.crop_to_content", "false"}});
+```
+
 The API uses only standard C++ types, so a program that includes SlideIO does
 not need OpenCV on its include path.
 

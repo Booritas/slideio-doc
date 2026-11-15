@@ -17,7 +17,7 @@ Example:
 
    import slideio
    slideio.get_driver_ids()
-   > ['AFI', 'CZI', 'DCM', 'GDAL', 'NDPI', 'OMETIFF', 'PHTIFF', 'QPTIFF', 'SCN', 'SVS', 'VSI', 'ZVI']
-   slide = slideio.open_slide(file_path="/data/a.czi", driver_id="CZI")
+   > ['AFI', 'BIF', 'CZI', 'DCM', 'GDAL', 'LIF', 'MRXS', 'ND2', 'NDPI', 'OMETIFF', 'PHTIFF', 'QPTIFF', 'SCN', 'SVS', 'VSI', 'ZVI']
+   slide = slideio.open_slide("/data/a.czi", "CZI")
    slide.num_scenes
    > 1

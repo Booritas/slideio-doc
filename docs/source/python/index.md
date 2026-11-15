@@ -39,7 +39,7 @@ Read a whole CZI image:
 
 ```python
 import slideio
-slide = slideio.open_slide(file_path="/data/a.czi", driver_id="CZI")
+slide = slideio.open_slide("/data/a.czi", "CZI")
 scene = slide.get_scene(0)
 block = scene.read_block()
 ```
